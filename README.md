@@ -40,17 +40,13 @@
   
 ## 2. Chuẩn bị
 
-### a. Kéo Repo (Kho chứa các file và folder) trên Github về:  
+### Kéo Repo (Kho chứa các file và folder) trên Github về:  
 
 Mở Terminal ( Ctrl + Alt +T ) và gõ lần lượt các lệnh sau: 
 - ```git init```
 - ```git clone https://github.com/ninhtrinhMM/15-7-25-MLops-01-Deploy-Bank-Loan-Prediction-model```
 - Ngay sau đó toàn bộ Github Repo từ link trên sẽ được tải về và hiển thị trong Folder tên là 15-7-25-MLops-01-Deploy-Bank-Loan-Prediction-model ở máy local, được gọi là Repo local.
-- Mở VS Code và open Folder trên.
-
-### b. Cấu trúc của Github Repo
-
-<img width="806" height="390" alt="Image" src="https://github.com/user-attachments/assets/ec751f78-10fa-4811-9da8-8944566b5dec" />  
+- Mở VS Code và open Folder trên. 
 
 ## 3. Khởi tạo Cluster GCP bằng Terraform
 
@@ -58,11 +54,11 @@ Truy cập vào https://console.cloud.google.com/ và đăng nhập bằng tài 
 
 Click vào My First Project → chọn "New Project" để tạo Project mới.  
 
-<img width="1033" height="54" alt="Image" src="https://github.com/user-attachments/assets/a61fa180-a3b1-4e5b-8345-9e4d612e2905" />  
+<img width="703" height="309" alt="Image" src="https://github.com/user-attachments/assets/63ee762c-874b-4922-80f1-bda5b7e9b00c" />
 
 **Lưu ý khi điền tên của Project phải trùng với tên Project của phần provider “google” trong file Terraform.**  
 
-<img width="579" height="313" alt="Image" src="https://github.com/user-attachments/assets/b84d9d3e-d6a5-4646-a648-a24b6ace13b1" />  
+<img width="615" height="297" alt="Image" src="https://github.com/user-attachments/assets/4223b528-3e27-4c68-a492-c1d3f7002b5c" />
 
 Tạo xong project, trở lại VS Code, chạy Termianl command sau: ```gcloud auth login``` và chọn tài khoản Google cá nhân.  
 
