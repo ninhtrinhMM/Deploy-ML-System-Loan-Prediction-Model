@@ -286,15 +286,13 @@ Giao diện Add Credential hiện lên, điền các thông tin như sau:
 3. Điền ID để quản lý.  
 Xong chọn Save để hoàn thành.
 
-<img width="1246" height="352" alt="Image" src="https://github.com/user-attachments/assets/2b51a863-04f6-4434-9d13-217a12f3b938" />
+<img width="1239" height="713" alt="Image" src="https://github.com/user-attachments/assets/8a64f9fb-ed33-46d4-8ce9-4a8f1de319d9" />
 
 <img width="936" height="500" alt="Image" src="https://github.com/user-attachments/assets/e8b40924-a76a-4f38-82fb-ef19dce7895a" />  
 
 Quay trở lại chỗ Credential và chọn đúng ID của Credential vừa tạo. Xong ấn "Test Connection" để xem đã kết nối được với Cluster chưa, nếu hiển thị như trong hình tức là đã kết nối thành công, xong nhấn "Save" để hoàn thành tạo Cloud kết nối Jenkins với Cluster. 
 
-<img width="1112" height="195" alt="Image" src="https://github.com/user-attachments/assets/4c7a21e9-f15e-4a2c-a540-70935972ef90" />  
-
-<img width="1221" height="259" alt="Image" src="https://github.com/user-attachments/assets/7535e086-2179-4eae-bf6e-f35edffd9035" />  
+<img width="1666" height="554" alt="Image" src="https://github.com/user-attachments/assets/02daa2f3-9421-4932-a506-559db76dd2fd" />
 
 ## 8. Khởi tạo luồng Jenkins CICD
 
