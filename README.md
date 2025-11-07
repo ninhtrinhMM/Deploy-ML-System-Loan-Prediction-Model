@@ -101,14 +101,14 @@ Chạy xong, kiểm tra bằng command: ```kubectl get pod -n monitoring``` và 
 
 **NOTE: Tất cả các thao tác mới với Terminal phải làm trên Terminal mới. Terminal hiện tại là để chứa Log của Jaeger.**  
 
-<img width="474" height="147" alt="Image" src="https://github.com/user-attachments/assets/15dd48c4-9252-468c-bdcd-9f732f8b4e5e" />  
+**Để Jaeger có thể tracing được service của app, phải setup jaeger_exporter trong app.py chứa agent_host_name được tạo từ đúng namespace của service trong Cluster** 
 
-**NOTE: Để Jaeger có thể tracing được service của app, phải setup jaeger_exporter trong app.py chứa agent_host_name được tạo từ đúng namespace của service trong Cluster** 
+<img width="526" height="147" alt="Image" src="https://github.com/user-attachments/assets/b22e6ec8-375e-4e02-ba38-96c25cf0213a" />
 
 ## **5. Khởi tạo Github Repo**  
 Truy cập github.com, tạo tài khoản nếu chưa có và khởi tạo 1 Repository ( Kho lưu trữ các file ) mới, điền Repository Name và để ở chế độ **PUBLIC**.   
 
-<img width="327" height="148" alt="Image" src="https://github.com/user-attachments/assets/8c25622d-d712-48f0-ab1d-3edbbfc86ed6" />  
+<img width="952" height="526" alt="Image" src="https://github.com/user-attachments/assets/cb5edfe7-3b12-42be-ae48-84deeb19bc57" />
 
 Trở về VS Code, chạy lệnh: ```git add .``` để add tất cả các Folder hiện tại vào Stageing Area.  
 Chạy lệnh: ```git commit -m <Tên commit>``` để tạo 1 bản ghi Commit mới.  
