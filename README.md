@@ -181,23 +181,21 @@ Giao diện Add Webhook hiện ra, phần Payload URL* điền link địa chỉ
 
 Phần Which events would you like to trigger this webhook? chọn "Let me select individual events." và tích chọn Push ( hoặc nếu muốn có thể chọn cả Pull ) để Jenkins nhận biết 2 dạng sự kiện thay đổi này từ Github. Xong kéo xuống chọn "Add Webhook"  
 
-<img width="609" height="397" alt="Image" src="https://github.com/user-attachments/assets/ce9cf452-736c-4ee0-8abc-5a23f380489a" />  
-
 Hoàn thành Add Webhook API của Jenkins cho Github. Mở 1 Terminal mới ở VS Code, thử nghiệm tạo 1 commit mới dưới Repo Local và đẩy commit đó lên Github Repo. Nếu thấy tích xanh nghĩa là Webhook API đã hoạt động tốt.  
 
-<img width="1000" height="402" alt="Image" src="https://github.com/user-attachments/assets/042522c2-a6ac-4400-b0cd-cf41c644e7c2" />  
+<img width="1207" height="533" alt="Image" src="https://github.com/user-attachments/assets/64baa072-33d9-41c1-946c-b85af8ecefbc" />
 
 ## **7. Thiết lập liên kết giữa Jenkins với các platform khác**  
 
 ### a. Kết nối Jenkins với Dockerhub:  
    
-Đầu tiên lấy Dockerhub Access Token, truy cập https://hub.docker.com/, click vào biểu tượng tài khoản và chọn Account Setting --> Personal Access Token --> Generate New Token --> Điền tên và chọn ngày hết hạn --> Chọn "Generate"  
+Đầu tiên lấy Dockerhub Access Token, truy cập **https://hub.docker.com/**, click vào biểu tượng tài khoản và chọn Account Setting --> Personal Access Token --> Generate New Token --> Điền tên và chọn ngày hết hạn --> Chọn "Generate"  
 
-<img width="684" height="439" alt="Image" src="https://github.com/user-attachments/assets/510a84b4-6db1-4008-868e-7f4bd4d83fbc" />  
+<img width="1207" height="533" alt="Image" src="https://github.com/user-attachments/assets/74e6bb62-1f9c-46c5-93fb-b3308f4a3c5a" />
 
 Đoạn mã khoanh đỏ chính là Dockerhub Access Token. Copy và lưu Dockerhub Access Token.  
 
-<img width="591" height="529" alt="Image" src="https://github.com/user-attachments/assets/918fa120-da57-4810-aeda-0b4a37c12675" />   
+<img width="845" height="495" alt="Image" src="https://github.com/user-attachments/assets/887fcad3-b7e9-4d79-95b7-7b209fcecd97" />
 
 Để Jenkins có thể truy cập vào Dockerhub thực hiện các tác vụ, chúng ta cần tạo 1 Credential ( *Credential là tấm thẻ để truy cập vào nền tảng khác* ) để Jenkins có thể truy cập vào Dockerhub.  
 Trở lại Jenkins, chọn Manage Jenkins --> Credential --> Click vào "system"  
