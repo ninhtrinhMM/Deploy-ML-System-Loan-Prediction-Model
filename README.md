@@ -94,7 +94,7 @@ Vì jaeger-deployment.yaml có setup năm trong namespace "monitoring" nên trư
 
 ```kubectl create namespace monitoring && kubectl apply -f jaeger-deployment.yaml```  
 
-Chạy xong, kiểm tra bằng command: ```kubectl get pod -n monitoring``` để check xem có Pod trong namesapce chưa và ```kubectl get svc -n monitoring``` để check xem trong namespace đã có service chưa
+Chạy xong, kiểm tra bằng command: ```kubectl get pod -n monitoring``` để check xem có Pod trong namesapce monitoring chưa và ```kubectl get svc -n monitoring``` để check xem trong namespace đã có service chưa
 
 <img width="1646" height="194" alt="Image" src="https://github.com/user-attachments/assets/3d520eb6-c229-4f60-b0cd-3550a48fab0c" />
 
@@ -125,27 +125,21 @@ Từ giờ khi có 1 Commit mới được tạo ra thì để đẩy lên Githu
 
 ### a. Khởi tạo Jenkins ở local  
 
-Jenkins có vai trò tự động hóa trong các bước Test-kiểm, Build và Deploy- Triển khai. Để chạy Jenkins, chắc chắn đang ở trong thư mục Repo local:  
-
-```cd ~/<Path repo>```
-
-```docker compose -f jenkins-compose.yaml up -d```
+Jenkins có vai trò tự động hóa trong các bước Test-kiểm, Build và Deploy- Triển khai. Chạy Jenkins:  ```docker compose -f jenkins-compose.yaml up -d```
 
 Trong quá trình khởi tạo Container, sẽ hiện ra Password như sau dùng để đăng nhập Jenkins, copy và lưu lại. Nếu không hiển thị như trong ảnh trên, vào Container Jenkins bằng command sau: ```docker logs <tên container>```  để thấy được Password.
 
-<img width="942" height="294" alt="Image" src="https://github.com/user-attachments/assets/e7c59994-f456-45a3-8ce3-f5c76e4811cf" />  
+<img width="1393" height="435" alt="Image" src="https://github.com/user-attachments/assets/d4400e66-eefb-4282-9b9f-4beabd4f5983" />
 
-Tiếp theo truy cập vào Jenkins bằng cách vào http://localhost:8080 và nhập Password ban nãy xong chọn Continue.  
-
-<img width="882" height="566" alt="Image" src="https://github.com/user-attachments/assets/10c339e0-48f0-462d-a9e1-04bb5399ab22" />  
+Truy cập vào Jenkins bằng cách vào http://localhost:8080 và nhập Password ban nãy xong chọn Continue.  
 
 Tiếp theo chọn Install Suggested Plugin ( Sử dụng hệ điều hành Ubuntu sẽ đỡ dính fail cài đặt hơn là Windown ) và chờ cài đặt hoàn tất.    
 
-<img width="882" height="566" alt="Image" src="https://github.com/user-attachments/assets/d7265985-f2f1-406e-83d5-6c42744615b9" />  
+<img width="987" height="805" alt="Image" src="https://github.com/user-attachments/assets/85b9975a-9939-418c-a2fd-751f440c4b4d" />
 
 Sau khi cài đặt các Plugin đề xuất xong, Popup đăng ký tên và password hiện lên, chọn Skip as admin.  
 
-<img width="892" height="576" alt="Image" src="https://github.com/user-attachments/assets/02ced131-6847-4297-9fab-af60dd94ed83" />  
+ 
 
 Xong chọn Save and Finish --> Start using Jenkins.  
 
