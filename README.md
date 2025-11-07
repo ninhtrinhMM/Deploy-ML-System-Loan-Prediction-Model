@@ -74,21 +74,20 @@ Chạy các lệnh sau để kiểm tra Terraform đã sẵn sàng và syntax tr
 ```terraform init```  
 ```terraform plan```  
 Chạy file Terraform: ```terraform apply```, sau đó chọn "Y".  
-Sau khi chạy xong, truy cập https://console.cloud.google.com/ --> My First Project --> <Tên Project trong file Terraform> --> Kubenetes Engines --> Cluster để kiểm tra   
+
+Sau khi chạy xong, truy cập https://console.cloud.google.com/ --> My First Project --> <Tên Project > --> Kubenetes Engines --> Cluster để kiểm tra   
 
 Nếu thấy tên của Cluster trùng với tên Cluster được thiết lập trong file Terraform nghĩa là thành công tạo 1 cụm máy Cluster, bên trong có 3 máy ảo VM Instance có cấu hình là E2 Medium.  
  
-<img width="930" height="378" alt="Image" src="https://github.com/user-attachments/assets/d6f0ef9d-0075-4cf1-a61a-b356b2237d72" />
+<img width="655" height="290" alt="Image" src="https://github.com/user-attachments/assets/6dd3251c-5237-43cf-8085-13af3be0da7d" />
 
 ## **4. Khởi tạo Jaeger Tracing:**  
 
 Vì Jaeger là 1 công cụ theo dõi Trace được định nghĩa sẵn trong file ML-app.py (file main) nên chúng ta cần triển khai Jaegar trước có thể theo dõi Trace ngay khi app khởi động.  
 
-Trước hết đảm bảo đã kết nối tới Cluster được tạo ở bước trước bằng command sau:  
+** Trước hết đảm bảo đã kết nối tới Cluster được tạo ở bước trước bằng command sau: **
 
 ```gcloud container clusters get-credentials <Tên Cluster> --zone <Nơi đặt máy> --project <Tên Project>```  
-
-<img width="835" height="255" alt="Image" src="https://github.com/user-attachments/assets/cf3ccc49-92f4-4c9d-983e-5695e50ad74f" />  
 
 Vì jaeger-deployment.yaml có setup năm trong namespace "monitoring" nên trước khi chạy file, ta cần thiết lập namespace "monitoring" trước và thực thi file jaeger-deployment.yaml sau bằng command sau:  
 
