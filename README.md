@@ -33,6 +33,7 @@
 
 - Gcloud CLI
 - Git
+- minikube ( phiên bản nhẹ của K8S )
 - Kubectl
 - Ngrok
 - Terraform
@@ -85,7 +86,7 @@ Nếu thấy tên của Cluster trùng với tên Cluster được thiết lập
 
 Vì Jaeger là 1 công cụ theo dõi Trace được định nghĩa sẵn trong file ML-app.py (file main) nên chúng ta cần triển khai Jaegar trước có thể theo dõi Trace ngay khi app khởi động.  
 
-** Trước hết đảm bảo đã kết nối tới Cluster được tạo ở bước trước bằng command sau: **
+**Trước hết đảm bảo đã kết nối tới Cluster được tạo ở bước trước bằng command sau:**
 
 ```gcloud container clusters get-credentials <Tên Cluster> --zone <Nơi đặt máy> --project <Tên Project>```  
 
@@ -93,11 +94,13 @@ Vì jaeger-deployment.yaml có setup năm trong namespace "monitoring" nên trư
 
 ```kubectl create namespace monitoring && kubectl apply -f jaeger-deployment.yaml```  
 
-Chạy xong, kiểm tra bằng command: ```kubectl get pod -n monitoring``` và ```kubectl get svc -n monitoring```  
+Chạy xong, kiểm tra bằng command: ```kubectl get pod -n monitoring``` để check xem có Pod trong namesapce chưa và ```kubectl get svc -n monitoring``` để check xem trong namespace đã có service chưa
+
+<img width="1646" height="194" alt="Image" src="https://github.com/user-attachments/assets/3d520eb6-c229-4f60-b0cd-3550a48fab0c" />
 
 Để truy cập được vào Jaeger, sử dụng port-forward: ```kubectl port-forward -n monitoring svc/jaeger 16686:16686``` sau đó truy cập vào localhost:16686, nếu thấy giao diện Jaeger hiện lên tức thành công.  
 
-<img width="960" height="524" alt="Image" src="https://github.com/user-attachments/assets/1eb5169d-8581-4bbe-94ef-a552b6af305f" />    
+<img width="1853" height="805" alt="Image" src="https://github.com/user-attachments/assets/adf4e9f1-0d7b-4062-8548-66c2dfb7f95e" />
 
 **NOTE: Tất cả các thao tác mới với Terminal phải làm trên Terminal mới. Terminal hiện tại là để chứa Log của Jaeger.**  
 
@@ -108,7 +111,7 @@ Chạy xong, kiểm tra bằng command: ```kubectl get pod -n monitoring``` và 
 ## **5. Khởi tạo Github Repo**  
 Truy cập github.com, tạo tài khoản nếu chưa có và khởi tạo 1 Repository ( Kho lưu trữ các file ) mới, điền Repository Name và để ở chế độ **PUBLIC**.   
 
-<img width="952" height="526" alt="Image" src="https://github.com/user-attachments/assets/cb5edfe7-3b12-42be-ae48-84deeb19bc57" />
+<img width="952" height="526" alt="Image" src="https://github.com/user-attachments/assets/cb5edfe7-3b12-42be-ae48-84deeb19bc57" /> 
 
 Trở về VS Code, chạy lệnh: ```git add .``` để add tất cả các Folder hiện tại vào Stageing Area.  
 Chạy lệnh: ```git commit -m <Tên commit>``` để tạo 1 bản ghi Commit mới.  
