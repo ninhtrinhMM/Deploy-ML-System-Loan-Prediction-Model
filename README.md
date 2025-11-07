@@ -246,46 +246,47 @@ Copy dãy Certificate và paste vào phần Kubernetes server certificate key.
 Để tạo Credential cho Jenkins Cloud kết nối tới Cluster, đầu tiên truy cập lại GCP https://console.cloud.google.com và chọn đúng project đang có Cluster.  
 Tiến hành tạo Service Account (*Service Account dùng để truy cập vào các nền tảng khác như Kubenetes thay vì đăng nhập bằng tài khoản Google bình thường* ), vào IAM & Admin --> Service Accounts --> CREATE SERVICE ACCOUNT --> Đặt tên cho Service Account --> Done.  
 
-<img width="1050" height="594" alt="Image" src="https://github.com/user-attachments/assets/5a33d119-fcb0-4bfe-b92d-38afa63dd736" />  
-<img width="927" height="130" alt="Image" src="https://github.com/user-attachments/assets/85c6280d-8016-4a6c-ba3d-f5714c9bc3e4" />  
-<img width="547" height="488" alt="Image" src="https://github.com/user-attachments/assets/70aff664-a4d6-4fc2-9383-3831727b4de6" />  
+<img width="1237" height="464" alt="Image" src="https://github.com/user-attachments/assets/37f93b2f-acf0-451d-8dd4-a4b7e826a3e1" />
 
-Tiếp theo chúng ta gán thêm quyền truy cập Kubenetes cho Service Account vừa tạo, vào IAM --> Grant Access  
+<img width="1311" height="698" alt="Image" src="https://github.com/user-attachments/assets/65c4137c-c5a7-4842-ab2d-7620b17eacb3" />
 
-<img width="816" height="295" alt="Image" src="https://github.com/user-attachments/assets/ddb3e6b7-ab2b-41a5-bd83-7876eff13eb5" />  
+<img width="1311" height="698" alt="Image" src="https://github.com/user-attachments/assets/7a7d9d20-e17b-4902-9986-f6cd15757c5e" />
+
+Tiếp theo chúng ta gán thêm quyền truy cập Kubenetes cho Service Account vừa tạo, vào IAM , xong click vào + Grant Access  
 
 Bảng Grant Access hiện lên, điền các thông tin theo thứ tự sau:  
 1. <tên service account>@<tên project>.iam.gserviceaccount.com  
 2. Phần Assign Role chọn option Kubernetes Engine Admin.  
 3. Thêm Assign Role chọn option Kubernetes Engine Cluster Admin. 
 
-<img width="935" height="613" alt="Image" src="https://github.com/user-attachments/assets/0d7d62c2-35f0-4cf5-9ab9-16cd782b660f" />  
+<img width="841" height="819" alt="Image" src="https://github.com/user-attachments/assets/a5199298-d119-4db5-9ebb-d4fe620df812" />
 
 Xong nhấn Save để hoàn thành thêm quyền.  
 
 Trở lại về Service Account vừa tạo, click vào Service Account đó và chuyển sang tab Key ở bên cạnh và chọn Add Key --> Create New Key --> Tích chọn Json --> nhấn Create và file Json sẽ được tải xuống.  
 
-<img width="1203" height="540" alt="Image" src="https://github.com/user-attachments/assets/b56a43b4-b340-465a-aa48-c61544537447" />  
+<img width="1291" height="543" alt="Image" src="https://github.com/user-attachments/assets/e40375b2-87a3-43f3-b6a8-52d6648e7fc1" />
 
-<img width="761" height="461" alt="Image" src="https://github.com/user-attachments/assets/9219ab02-554d-4bcd-a464-85bf65feb1b5" />  
+<img width="841" height="409" alt="Image" src="https://github.com/user-attachments/assets/de72a16c-2bfc-44f2-b34f-9c31cdfece8e" />
 
 Tiếp theo tiến hành lấy Access Token đại diện cho Servie Account, chạy command sau:  
 
 ```gcloud auth activate-service-account <tên service account>@<tên project>.iam.gserviceaccount.com --key-file=<Path chứa Json Key vừa tải>```  
 ```gcloud auth print-access-token```  
-Đoạn Access Token sẽ được hiển thị như sau, Copy và lưu lại.  
 
-<img width="1009" height="209" alt="Image" src="https://github.com/user-attachments/assets/0589cfc4-ffbb-4764-9b22-28ef334ec8fb" />  
+Đoạn Access Token sẽ được hiển thị, Copy và lưu lại.  
 
 Trở lại với Jenkins, kéo xuống phần Credential của giao diện New Cloud, Chọn Add --> Jenkins  
 
-<img width="1141" height="340" alt="Image" src="https://github.com/user-attachments/assets/88bbaa9e-2267-4dd8-b3c7-266e46ebb58a" />  
+<img width="1695" height="829" alt="Image" src="https://github.com/user-attachments/assets/f7aafc6c-e3cf-4adc-8338-4257676b4cd6" />
 
 Giao diện Add Credential hiện lên, điền các thông tin như sau:  
 1. Để kind là Secret Text  
 2. Paste Access Token ban nãy vừa lưu lại.  
 3. Điền ID để quản lý.  
-Xong chọn Save để hoàn thành.  
+Xong chọn Save để hoàn thành.
+
+<img width="1246" height="352" alt="Image" src="https://github.com/user-attachments/assets/2b51a863-04f6-4434-9d13-217a12f3b938" />
 
 <img width="936" height="500" alt="Image" src="https://github.com/user-attachments/assets/e8b40924-a76a-4f38-82fb-ef19dce7895a" />  
 
