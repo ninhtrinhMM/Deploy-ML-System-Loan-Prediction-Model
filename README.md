@@ -56,7 +56,7 @@ Click vào My First Project → chọn "New Project" để tạo Project mới.
 
 <img width="703" height="309" alt="Image" src="https://github.com/user-attachments/assets/63ee762c-874b-4922-80f1-bda5b7e9b00c" />
 
-**Lưu ý khi điền tên của Project phải trùng với tên Project của phần provider “google” trong file Terraform.**  
+**Lưu ý khi điền tên của Project phải trùng với tên Project của phần provider “google” trong file Terraform main.tf**  
 
 <img width="615" height="297" alt="Image" src="https://github.com/user-attachments/assets/4223b528-3e27-4c68-a492-c1d3f7002b5c" />
 
@@ -76,12 +76,9 @@ Chạy các lệnh sau để kiểm tra Terraform đã sẵn sàng và syntax tr
 Chạy file Terraform: ```terraform apply```, sau đó chọn "Y".  
 Sau khi chạy xong, truy cập https://console.cloud.google.com/ --> My First Project --> <Tên Project trong file Terraform> --> Kubenetes Engines --> Cluster để kiểm tra   
 
-<img width="1033" height="539" alt="Image" src="https://github.com/user-attachments/assets/ceffd75e-a224-43be-a3fe-776306e76fb3" />  
-
 Nếu thấy tên của Cluster trùng với tên Cluster được thiết lập trong file Terraform nghĩa là thành công tạo 1 cụm máy Cluster, bên trong có 3 máy ảo VM Instance có cấu hình là E2 Medium.  
-
-<img width="928" height="456" alt="Image" src="https://github.com/user-attachments/assets/2c0ff572-2368-48a4-a709-06a4e47d3897" />  
-<img width="503" height="307" alt="Image" src="https://github.com/user-attachments/assets/fc71fe0a-2b1f-440f-9303-3a46c3e8c655" />  
+ 
+<img width="930" height="378" alt="Image" src="https://github.com/user-attachments/assets/d6f0ef9d-0075-4cf1-a61a-b356b2237d72" />
 
 ## **4. Khởi tạo Jaeger Tracing:**  
 
