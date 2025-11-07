@@ -318,7 +318,7 @@ Một số thông tin phải thiết lập ở trong file Jenkinsfile, mục (1)
 
 Mục (2) là ID của Credential kết nối Jenkins với Dockerhub được tạo ở bước 7a, trong trường hợp này là "jenkins-dockerhub".  
 
-<img width="1266" height="451" alt="Image" src="https://github.com/user-attachments/assets/34aab4fb-da88-4c6d-b187-a37c59499829" />
+<img width="1162" height="430" alt="Image" src="https://github.com/user-attachments/assets/b6c341f1-d503-41d4-9a22-09bf365a4dc1" />
 
 Mục (3) là ID Credential của Cloud được tạo ở bước 7b.3  
 
