@@ -350,11 +350,12 @@ Bảng Add Credential hiện lên. Điền các thông tin lần lượt như sa
 
 Hoàn thiện xong nhấn Add. 
 
-Quay trở lại giao diện Github Credential chọn đúng ID Credential vừa tạo **(1)**. Ở mục Repository HTTPS URL dán link của Github Repo vào **(2)**. Xong ấn Validate để kiểm tra kết nối **(3)**. Hiển thị "Credential OK" nghĩa là kết nối giữa Jenkins và Github Repo đã thành công. Xong nhấn   
+Quay trở lại giao diện Github Credential chọn đúng User name vừa tạo **(1)**. Ở mục Repository HTTPS URL dán link của Github Repo vào **(2)**. Xong ấn Validate để kiểm tra kết nối **(3)**. Hiển thị "Credential OK" nghĩa là kết nối giữa Jenkins và Github Repo đã thành công. Xong nhấn   
 
-<img width="888" height="406" alt="Image" src="https://github.com/user-attachments/assets/db62c007-64c7-4b46-a188-48b1242a1db7" />  
+<img width="1308" height="410" alt="Image" src="https://github.com/user-attachments/assets/65964781-dd2f-4b86-a367-be761fb2e383" />
 
 Xong nhấn "Save" để hoàn thiện xây dựng luồng CI/CD. Ngay khi ấn Save xong Jenkins sẽ quyét toàn bộ Github Repo, ở nhánh nào nếu có file Jenkinsfile thì Jenkins sẽ thực hiện các Stage và Step ( các giai đoạn và các bước ) đúng như trong file Jenkinsfile đề ra.  
+-------------------------
 Như trong hình, Jenkins đã quét ra được 1 file Jenkinsfile ở nhánh Main trong Github Repo.  
 
 <img width="682" height="524" alt="Image" src="https://github.com/user-attachments/assets/dc6eee33-77e1-4008-ad8e-d2da6754adcc" />  
