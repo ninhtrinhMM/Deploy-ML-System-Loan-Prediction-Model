@@ -197,35 +197,35 @@ Hoàn thành Add Webhook API của Jenkins cho Github. Mở 1 Terminal mới ở
 
 <img width="845" height="495" alt="Image" src="https://github.com/user-attachments/assets/887fcad3-b7e9-4d79-95b7-7b209fcecd97" />
 
-Để Jenkins có thể truy cập vào Dockerhub thực hiện các tác vụ, chúng ta cần tạo 1 Credential ( *Credential là tấm thẻ để truy cập vào nền tảng khác* ) để Jenkins có thể truy cập vào Dockerhub.  
+Để Jenkins có thể truy cập vào Dockerhub thực hiện các tác vụ, chúng ta cần tạo 1 Credential ( *Credential là tấm thẻ để truy cập vào nền tảng khác* ) để Jenkins có thể truy cập vào Dockerhub. 
+
 Trở lại Jenkins, chọn Manage Jenkins --> Credential --> Click vào "system"  
 
-<img width="856" height="320" alt="Image" src="https://github.com/user-attachments/assets/0b48619b-f67c-46c4-86e1-abebd9fffd8e" />  
+<img width="1410" height="468" alt="Image" src="https://github.com/user-attachments/assets/a43c7e05-5584-43f3-92e9-26aef926c2b2" />
 
 Xong chọn tiếp "Global credentials (unrestricted)" --> Add Credentials  
-
-<img width="1043" height="212" alt="Image" src="https://github.com/user-attachments/assets/1916705f-9912-4781-8ef6-10552e6385d8" />  
-<img width="1201" height="227" alt="Image" src="https://github.com/user-attachments/assets/8f1f2e00-481d-4182-aa15-847c6df9a367" />  
+  
+<img width="1631" height="461" alt="Image" src="https://github.com/user-attachments/assets/84c1a92f-6036-45b2-bb13-ad3f5f5a885d" />
 
 Bảng New Credential hiện lên, lần lượt điền các thông tin như sau:  
 1. User name = Tên tài khoản Dockerhub. 
 2. Password chính là Dockerhub Access Token vừa nãy lưu.  
 3. Điền ID cho Credential, ID này dùng để xác định chính xác Credential nào Jenkins sẽ sử dụng.  
 
-<img width="1189" height="607" alt="Image" src="https://github.com/user-attachments/assets/a2b1767f-6c03-470f-80ff-d59935849c02" />  
+<img width="1631" height="768" alt="Image" src="https://github.com/user-attachments/assets/884fc7a2-5b17-4d61-901b-a4b52466a541" />
 
 XOng ấn "Create" để tạo Dockerhub Credential. Trở lại Manage Jenkins/Credential và thấy Credential hiện lên như trong hình dưới nghĩa là tạo thành công.  
 
-<img width="1111" height="368" alt="Image" src="https://github.com/user-attachments/assets/2f5236d0-007a-4c72-ab9e-7d26195077d2" />  
+<img width="1631" height="384" alt="Image" src="https://github.com/user-attachments/assets/8e284a78-25a2-4019-91cf-e65e011ee311" />
 
 ### b. Kết nối Jenkins với GCP Cluster:  
 Để Jenkins có thể truy cập vào chính xác cụm máy Cluster mà chúng ta tạo ở mục 3, trở về trang chủ Jenkins --> Manage Jenkins --> Clouds --> New Cloud. Sau đó điền tên cho Cloud và chọn type là Kubenetes xong nhấn "Create".  
 
-<img width="896" height="353" alt="Image" src="https://github.com/user-attachments/assets/af5bac3e-d569-46f2-8d00-ec024cab129f" />  
+<img width="1168" height="384" alt="Image" src="https://github.com/user-attachments/assets/6edc4f50-20b9-43ce-9e58-caa5ac3303f7" />
 
 Bảng New Cloud hiện lên, với các ô cần điền như **Kubenetes URL** và **Kubernetes server certificate key** và Credential cho Cloud.  
 
-<img width="1067" height="444" alt="Image" src="https://github.com/user-attachments/assets/2f34d07a-594e-49fc-804b-bf2cf631d3d0" />   
+<img width="1436" height="852" alt="Image" src="https://github.com/user-attachments/assets/30cae519-03c5-493c-85f1-140758c5b589" />
 
    #### *b.1. Lấy Kubenetes URL:*  
 Để lấy được Kubenetes URL của Cluster mà chúng ta tạo ở bước 3, chạy đoạn command sau:  
