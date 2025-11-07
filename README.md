@@ -153,8 +153,7 @@ Vào Manage Jenkins --> Plugin --> Availabale Plugins và search rồi cài đ�
 * Kubenetes CLI
 * Kubenetes Credential
 
-<img width="1271" height="421" alt="Image" src="https://github.com/user-attachments/assets/bf144381-0475-4a59-94a2-15eebd990bd7" />  
-<img width="931" height="406" alt="Image" src="https://github.com/user-attachments/assets/734fa365-3b66-4b4c-8a2f-dac1a4b1b5cd" />  
+<img width="1508" height="698" alt="Image" src="https://github.com/user-attachments/assets/abb5a7cd-3dc5-4843-9987-9ea828aeca82" />
 
 ### b. Kết nối Github Repo với Jenkins:  
 
