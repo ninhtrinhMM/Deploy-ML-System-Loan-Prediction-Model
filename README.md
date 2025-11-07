@@ -292,26 +292,23 @@ Quay trở lại chỗ Credential và chọn đúng ID của Credential vừa t�
 
 <img width="1666" height="554" alt="Image" src="https://github.com/user-attachments/assets/02daa2f3-9421-4932-a506-559db76dd2fd" />
 
-## 8. Khởi tạo luồng Jenkins CICD
+## 8. Khởi tạo luồng Jenkins CI/CD
 
 ### a. Lấy Github Access Token:  
 
 Jenkins cần có Github Access Token để có thể trigger (nhận biết) vào từng Branch (nhánh) của Github để nhận biết Jenkinsfile. Trước hết lấy Github Access Token bằng cách click vào Avatar Github --> Setting --> Developer Settings
 
-<img width="994" height="550" alt="Image" src="https://github.com/user-attachments/assets/16086200-a4e0-4e42-92b9-d76216115eaf" />  
+<img width="1246" height="464" alt="Image" src="https://github.com/user-attachments/assets/a4be0878-4ecc-499f-bf59-2be47a80c190" />
 
 Vào Personal Access Token --> Token Classic --> Generate new token --> Generate new token (Classic)  
 
-<img width="1055" height="376" alt="Image" src="https://github.com/user-attachments/assets/ced75b73-7167-4182-b9b0-3ff77d91106c" />  
-<img width="1039" height="358" alt="Image" src="https://github.com/user-attachments/assets/421a5b4e-f7c9-4e86-95f5-038be15d5b78" />  
+<img width="1246" height="742" alt="Image" src="https://github.com/user-attachments/assets/692bf2aa-46ff-4a16-ba89-94c5f132db46" />
 
 Điền tên cho Github Access Token và chọn ngày hết hạn. Phần "Select Scope" có thể tích hết các Option.  
 
-<img width="916" height="548" alt="Image" src="https://github.com/user-attachments/assets/05561388-82de-4963-9f94-e6be9dcb1b75" />  
-
 Hoàn thành xong kéo xuống nhấn "Generate Token" để tạo Github Access Token. Giao diện chứa mã Github Access Token hiện lên. Tiến hành lưu mã Github Access Token ở nơi khác. Vì nếu mất không thể có lại được nữa.  
 
-<img width="1010" height="444" alt="Image" src="https://github.com/user-attachments/assets/13852c0f-f9e8-4379-822e-d24b9443e881" />
+<img width="1310" height="476" alt="Image" src="https://github.com/user-attachments/assets/fcb4d254-56a3-4df5-85be-195f3837980f" />
 
 ### b. Thiếp lập thông tin trong Jenkinsfile: 
 
