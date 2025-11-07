@@ -346,9 +346,11 @@ Bảng Add Credential hiện lên. Điền các thông tin lần lượt như sa
 2. Điền Github Access Token vào.  
 3. Điền ID để quản lý.
 
-<img width="963" height="491" alt="Image" src="https://github.com/user-attachments/assets/de53b89d-49c4-450d-a9ae-4c222b94021f" />  
+<img width="1246" height="770" alt="Image" src="https://github.com/user-attachments/assets/060af370-97d5-4aa5-a091-3c585269cfcf" />
 
-Hoàn thiện xong nhấn Add. Quay trở lại giao diện Github Credential chọn đúng ID Credential vừa tạo **(1)**. Ở mục Repository HTTPS URL dán link của Github Repo vào **(2)**. Xong ấn Validate để kiểm tra kết nối **(3)**. Hiển thị "Credential OK" nghĩa là kết nối giữa Jenkins và Github Repo đã thành công. Xong nhấn   
+Hoàn thiện xong nhấn Add. 
+
+Quay trở lại giao diện Github Credential chọn đúng ID Credential vừa tạo **(1)**. Ở mục Repository HTTPS URL dán link của Github Repo vào **(2)**. Xong ấn Validate để kiểm tra kết nối **(3)**. Hiển thị "Credential OK" nghĩa là kết nối giữa Jenkins và Github Repo đã thành công. Xong nhấn   
 
 <img width="888" height="406" alt="Image" src="https://github.com/user-attachments/assets/db62c007-64c7-4b46-a188-48b1242a1db7" />  
 
