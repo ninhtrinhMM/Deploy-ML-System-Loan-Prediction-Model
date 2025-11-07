@@ -421,15 +421,13 @@ Sau khi triển khai ingress.yaml xong, truy cập theo link sau: ```http://<Ext
 
 Trước khi chạy thử, đầu tiên chúng ta cần lấy 1 trường hợp bất kỳ trong Datatable chứa 45000 trường hợp vay vốn. Mở file ML_DL_Loan_Deal_Classification.ipynb trong Folder jupyter-notebook-model, kéo xuống mục số 7 và copy dãy 14 số trong hình, bỏ số 0 ở cuối vì đây là Target Label ( 0 là vỡ nợ, 1 là trả được nợ ), đây chính là 13 feature được dùng đẻ train cho mô hình.    
 
-<img width="1269" height="499" alt="Image" src="https://github.com/user-attachments/assets/9805f82e-8878-46f3-b485-a9aa09139b7c" />  
+---------------------
 
 Quay trở lại với FAST API, chọn Post/predict --> Try it out --> Paste dãy số Feature  
 
-<img width="1279" height="578" alt="Image" src="https://github.com/user-attachments/assets/e0286e5f-ac22-4bbe-9411-0137bcabab00" />  
+---------
 
 Xong ấn Execute để gửi Request tới Model, kéo xuống dưới và thấy hiển thị như trong hình nghĩa là thành công response (đáp lại) cho request và kết quả trả về là 0 ( vỡ nợ ), đúng với kết quả Target Label của bài.  
-
-<img width="1266" height="516" alt="Image" src="https://github.com/user-attachments/assets/62339e71-a1de-4597-a915-ae2ae88ce27e" />  
 
 ## **9. Các hệ thống giám sát:**  
 
