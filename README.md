@@ -223,7 +223,7 @@ XOng ấn "Create" để tạo Dockerhub Credential. Trở lại Manage Jenkins/
 
 <img width="1168" height="384" alt="Image" src="https://github.com/user-attachments/assets/6edc4f50-20b9-43ce-9e58-caa5ac3303f7" />
 
-Bảng New Cloud hiện lên, với các ô cần điền như **Kubenetes URL** và **Kubernetes server certificate key** và Credential cho Cloud.  
+Bảng New Cloud hiện lên, với các ô cần điền như **Kubenetes URL** và **Kubernetes server certificate key** và Credential cho Cloud. 
 
 <img width="1436" height="852" alt="Image" src="https://github.com/user-attachments/assets/30cae519-03c5-493c-85f1-140758c5b589" />
 
