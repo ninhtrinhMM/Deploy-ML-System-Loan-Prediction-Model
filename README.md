@@ -127,7 +127,7 @@ Từ giờ khi có 1 Commit mới được tạo ra thì để đẩy lên Githu
 
 Jenkins có vai trò tự động hóa trong các bước Test-kiểm, Build và Deploy- Triển khai. Chạy Jenkins:  ```docker compose -f jenkins-compose.yaml up -d```
 
-Trong quá trình khởi tạo Container, sẽ hiện ra Password như sau dùng để đăng nhập Jenkins, copy và lưu lại. Nếu không hiển thị như trong ảnh trên, vào Container Jenkins bằng command sau: ```docker logs <tên container>```  để thấy được Password.
+Trong quá trình khởi tạo Container, sẽ hiện ra Password như sau dùng để đăng nhập Jenkins, copy và lưu lại. Nếu không hiển thị như trong ảnh trên, vào Container Jenkins bằng command sau: ```docker logs jenkins-new```  để thấy được Password.
 
 <img width="1393" height="435" alt="Image" src="https://github.com/user-attachments/assets/d4400e66-eefb-4282-9b9f-4beabd4f5983" />
 
@@ -139,15 +139,11 @@ Tiếp theo chọn Install Suggested Plugin ( Sử dụng hệ điều hành Ubu
 
 Sau khi cài đặt các Plugin đề xuất xong, Popup đăng ký tên và password hiện lên, chọn Skip as admin.  
 
- 
+<img width="987" height="943" alt="Image" src="https://github.com/user-attachments/assets/82d052b6-a88c-4d65-b736-4d42ae653d3e" />
 
-Xong chọn Save and Finish --> Start using Jenkins.  
+Xong chọn Save and Finish --> Start using Jenkins. Như vậy chúng ta đã đăng nhập Jenkins thành công với tên tài khoản là admin, password đã được lưu. 
 
-<img width="882" height="332" alt="Image" src="https://github.com/user-attachments/assets/3ef433bf-52c8-4368-b094-3f6b1a8f897a" />   
-
-Đăng nhập Jenkins thành công với tên tài khoản là admin, password đã được lưu. 
-
-<img width="1289" height="558" alt="Image" src="https://github.com/user-attachments/assets/e0b9eb2c-c083-4ac0-9d20-448c1eca6af6" />  
+<img width="1508" height="698" alt="Image" src="https://github.com/user-attachments/assets/84905cb6-b91f-4bff-8109-d955473b7790" />
 
 Vào Manage Jenkins --> Plugin --> Availabale Plugins và search rồi cài đặt các Plugin cần thiết như:  
 * Docker
