@@ -157,30 +157,27 @@ Vào Manage Jenkins --> Plugin --> Availabale Plugins và search rồi cài đ�
 
 ### b. Kết nối Github Repo với Jenkins:  
 
-Trước hết cần kết nối Github Repo với Jenkins để mỗi lần Github Repo được đẩy Commit mới hoặc tạo Branch (nhánh) mới thì Jenkins có thể nhận biết được và triển khai luồng CI/CD. Chúng ta sử dụng Webhook API.  
+Trước hết cần kết nối Github Repo với Jenkins để mỗi lần Github Repo được đẩy Commit mới hoặc tạo Branch (nhánh) mới thì Jenkins có thể quét xem có Jenkinfile hay không và triển khai luồng CI/CD bằng các bước trong Jenkinsfile đó. Chúng ta sử dụng Webhook API.  
 Trước hết sử dụng công cụ Ngrok để tạo 1 đường hầm Pubic cho Jenkins dưới Local. Truy cập page https://dashboard.ngrok.com/ và đăng nhập (tạo tài khoản nếu chưa có). Sau đó vào "Your Authtoken", chúng ta sẽ thấy token authen và copy đoạn mã token này.   
 
-<img width="894" height="439" alt="Image" src="https://github.com/user-attachments/assets/2674bf58-6d92-496a-8360-035b2ef19c67" />  
-<img width="692" height="167" alt="Image" src="https://github.com/user-attachments/assets/f2ff36a0-66a7-403f-8520-3a5760419540" />  
+<img width="1267" height="383" alt="Image" src="https://github.com/user-attachments/assets/9412e743-c797-44e8-9195-4e38b1759ba0" />
 
 Bật Terminal của Vs code và chạy command: ```ngrok config add-authtoken <AUTHTOKEN lúc nãy>```  
 Tiếp theo chạy: ```ngrok http 8080``` ( 8080 là Port của Jenkins )
 Xong khu vực Terminal sẽ hiển thị giao diện như sau:  
 
-<img width="818" height="319" alt="Image" src="https://github.com/user-attachments/assets/9ef74fc9-90ff-409d-92f1-bc352edc9736" />
+<img width="1098" height="355" alt="Image" src="https://github.com/user-attachments/assets/245c61ce-b30b-4a91-b270-e46e5199b089" />
 
 Đoạn khoanh đỏ trong hình chính là địa chỉ web kết nối trực tiếp ( Tạo thành 1 "đường hầm" ) với Jenkins ở máy local, thay vì truy cập vào localhost:8080, chúng ta có thể truy cập Jenkins thông qua địa chỉ web này. Tiến hành copy địa chỉ web trên.  
-Trở lại Github Repo, chọn Setting  
+Trở lại Github Repo, chọn Setting, chọn Webhook --> Add Webhook
 
-<img width="838" height="143" alt="Image" src="https://github.com/user-attachments/assets/d2ad92ba-e844-42de-9923-96dbab305f42" />  
+<img width="1464" height="640" alt="Image" src="https://github.com/user-attachments/assets/dfe5c7ae-0537-4005-b6eb-775c0f341041" />
 
-Chọn Webhook --> Add Webhook  
-
-<img width="1059" height="563" alt="Image" src="https://github.com/user-attachments/assets/2fa0e13e-911c-475b-b3f4-fa9ef0953b0b" />  
+<img width="990" height="209" alt="Image" src="https://github.com/user-attachments/assets/7c1f680a-7173-43fd-bb7f-89d74ae2b7ef" />
 
 Giao diện Add Webhook hiện ra, phần Payload URL* điền link địa chỉ web lúc nãy kèm theo đuôi "/github-webhook/" để Jenkins nhận biết Webhook API. Phần Content Type* để Application Json.  
 
-<img width="990" height="439" alt="Image" src="https://github.com/user-attachments/assets/70424728-2fb1-4167-a6e5-0c9e44ada9cb" />
+<img width="1276" height="644" alt="Image" src="https://github.com/user-attachments/assets/8bcd55ac-6c47-4570-978e-1d47826bdc88" />
 
 Phần Which events would you like to trigger this webhook? chọn "Let me select individual events." và tích chọn Push ( hoặc nếu muốn có thể chọn cả Pull ) để Jenkins nhận biết 2 dạng sự kiện thay đổi này từ Github. Xong kéo xuống chọn "Add Webhook"  
 
