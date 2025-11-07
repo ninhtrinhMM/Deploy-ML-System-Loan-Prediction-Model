@@ -326,22 +326,20 @@ Mục (4) là **Kubenetes URL** được tạo ra ở bước 7b.1
 
 ### c. Thiết lập luồng CI/CD:  
 
-Trở vè trang chủ Jenkins, chọn New Item.  
-
-<img width="1144" height="349" alt="Image" src="https://github.com/user-attachments/assets/2ca9d739-ebee-4085-a960-af5425bb23e7" />  
+Trở vè trang chủ Jenkins, chọn New Item ở góc bên tay trái.
 
 Đặt tên cho Pipeline và chọn Multibranch Pipeline để quét toàn bộ các branch trong GitHub repo, xong nhấn OK.  
 
-<img width="898" height="550" alt="Image" src="https://github.com/user-attachments/assets/1d26b847-bbdf-4626-b194-1b54c217f18d" />  
+<img width="1483" height="861" alt="Image" src="https://github.com/user-attachments/assets/1d0e0032-6d83-43dd-8ded-0918d6045942" />
 
 Giao diện General hiện lên. Điền tên Display Name, đây sẽ là tên hiển thị của luồng CI/CD.  
 Kéo xuống ở phần Branch Source chọn Github, để Jenkins có thể xét toàn bộ các nhánh của Github Repo.  
 
-<img width="897" height="486" alt="Image" src="https://github.com/user-attachments/assets/4dc4d976-37b0-46d6-92b4-3a374aa059eb" />  
+<img width="1410" height="920" alt="Image" src="https://github.com/user-attachments/assets/64f208d6-cab3-4066-9d64-7e23fc3e41f4" />
 
 Lập tức Github Credential hiện lên, chọn Add --> Chọn đúng tên Pipeline setup ban đầu.  
 
-<img width="930" height="472" alt="Image" src="https://github.com/user-attachments/assets/dedac827-6b70-48f1-978f-25a60eb66b13" />  
+<img width="1385" height="779" alt="Image" src="https://github.com/user-attachments/assets/9fe437dc-5dff-4b32-8166-7ac3919eeb30" />
 
 Bảng Add Credential hiện lên. Điền các thông tin lần lượt như sau: 
 1. Điền User name.             
