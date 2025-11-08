@@ -350,30 +350,28 @@ Bảng Add Credential hiện lên. Điền các thông tin lần lượt như sa
 
 Hoàn thiện xong nhấn Add. 
 
-Quay trở lại giao diện Github Credential chọn đúng User name vừa tạo **(1)**. Ở mục Repository HTTPS URL dán link của Github Repo vào **(2)**. Xong ấn Validate để kiểm tra kết nối **(3)**. Hiển thị "Credential OK" nghĩa là kết nối giữa Jenkins và Github Repo đã thành công.   
+Quay trở lại giao diện Github Credential chọn đúng User name vừa tạo **(1)**. Ở mục Repository HTTPS URL dán link của Github Repo vào **(2)**. Xong ấn Validate để kiểm tra kết nối **(3)**. Sau khi ấn Validate, hiển thị "Credential OK" nghĩa là kết nối giữa Jenkins và Github Repo đã thành công.   
 
 <img width="1308" height="410" alt="Image" src="https://github.com/user-attachments/assets/65964781-dd2f-4b86-a367-be761fb2e383" />
 
-Xong nhấn "Save" để hoàn thiện xây dựng luồng CI/CD. Ngay khi ấn Save xong Jenkins sẽ quyét toàn bộ Github Repo, ở nhánh nào nếu có file Jenkinsfile thì Jenkins sẽ thực hiện các Stage và Step ( các giai đoạn và các bước ) đúng như trong file Jenkinsfile đề ra.  
--------------------------
-Như trong hình, Jenkins đã quét ra được 1 file Jenkinsfile ở nhánh Main trong Github Repo.  
+Xong nhấn "Save" để hoàn thiện xây dựng luồng CI/CD. Ngay khi ấn Save xong Jenkins sẽ quyét toàn bộ Github Repo, ở nhánh nào nếu có file Jenkinsfile thì Jenkins sẽ thực hiện các Stage và Step ( các giai đoạn và các bước ) đúng như trong file Jenkinsfile đề ra.
 
-<img width="682" height="524" alt="Image" src="https://github.com/user-attachments/assets/dc6eee33-77e1-4008-ad8e-d2da6754adcc" />  
+<img width="1733" height="769" alt="Image" src="https://github.com/user-attachments/assets/a29ceb85-81ed-48ad-bc47-fb8b228eaa87" />
 
 Vì Github Repo và Jenkins đã được trigger với nhau thông qua Webhook API ( ngrok ) nên Jenkins luôn tự động xem xét tìm kiếm Jenkinsfile ở trên mọi nhánh của Github Repo mỗi khi có Commit dưới local đẩy lên. Vì thế luồng tự động CI/CD được triển khai luôn ngay sau khi Pipeline (đoạn New Item) được tạo ra.  
 Để theo dõi quá trình Jenkins thực thi, click vào tên Pipeline --> main --> Click vào số "1" ( Số 1 là số lần Jenkins chạy, Muốn chạy lần nữa click vào Build Now )  
 
-<img width="1314" height="257" alt="Image" src="https://github.com/user-attachments/assets/44fc635c-abdb-4230-b8cd-6a02309517fb" />  
-<img width="996" height="227" alt="Image" src="https://github.com/user-attachments/assets/7e5b099c-c748-414e-9fb3-02393cb1274c" />  
-<img width="665" height="412" alt="Image" src="https://github.com/user-attachments/assets/8867427a-0845-4fa4-8d66-5dba1f2a5531" />  
+<img width="1733" height="778" alt="Image" src="https://github.com/user-attachments/assets/9a8dcaac-ee17-430b-8145-cac1d559578f" />
 
 Sau khi ấn vào số "1" xong, chọn "Console Output" để xem quá trình chạy của Jenkins.  
 
-<img width="962" height="572" alt="Image" src="https://github.com/user-attachments/assets/d48438df-c6e0-4cdd-866b-d22d023b6ba2" />  
+<img width="1276" height="566" alt="Image" src="https://github.com/user-attachments/assets/fe43d5ed-3b1d-40a3-9a30-989044f8d0d9" />
 
-Hiển thị như trong hình nghĩa là luồng Jenkins đã chạy thành công trong việc triển khai 1 file deployment.yaml có 3 pod ( Replica=3 ) lên Cluster. *Nếu luồng chạy bị fail ở đoạn Deploy GKE thì hãy làm lại từ bước 7.b.3*  
+<img width="1733" height="911" alt="Image" src="https://github.com/user-attachments/assets/f7b453d4-5f50-4602-ba79-2f851cf7506a" />
 
-<img width="1212" height="596" alt="Image" src="https://github.com/user-attachments/assets/38c4313c-1009-498c-833a-8eba84c10f89" />  
+Như vậy Jenkins đã có thể chạy và triển khai 1 file deployment.yaml có 3 pod ( Replica=3 ) lên Cluster. 
+
+*NOTE: Nếu luồng chạy bị fail ở đoạn Deploy GKE thì hãy làm lại từ bước 7.b.3*  
 
 ### d. Triển khai Service thông qua Ingress và Check kết quả API trả về:  
 
