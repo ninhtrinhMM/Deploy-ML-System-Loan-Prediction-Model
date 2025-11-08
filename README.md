@@ -419,11 +419,7 @@ Sau khi triển khai ingress.yaml xong, truy cập theo link sau: ```http://<Ext
 
 Trước khi chạy thử, đầu tiên chúng ta cần lấy 1 trường hợp bất kỳ trong Datatable chứa 45000 trường hợp vay vốn. Mở file ML_DL_Loan_Deal_Classification.ipynb trong Folder jupyter-notebook-model, kéo xuống mục số 7 và copy dãy 14 số trong hình, bỏ số 0 ở cuối vì đây là Target Label ( 0 là vỡ nợ, 1 là trả được nợ ), đây chính là 13 feature được dùng đẻ train cho mô hình.    
 
----------------------
-
-Quay trở lại với FAST API, chọn Post/predict --> Try it out --> Paste dãy số Feature  
-
----------
+Quay trở lại với FAST API, chọn Post/predict --> Try it out --> Paste dãy số Feature mà bạn vừa copy.
 
 Xong ấn Execute để gửi Request tới Model, kéo xuống dưới và thấy hiển thị như trong hình nghĩa là thành công response (đáp lại) cho request và kết quả trả về là 0 ( vỡ nợ ), đúng với kết quả Target Label của bài.  
 
@@ -448,8 +444,6 @@ Hoàn thiện xong, kiểm tra các Pod và service:
 ```kubectl get po -n monitoring - o wide```  
 ```kubectl get svc -n monitoring```  
 
-<img width="993" height="194" alt="Image" src="https://github.com/user-attachments/assets/e063e5f6-4ab7-43fa-ae92-242e18ca0b99" />  
-
 Chạy file service-monitor.yaml, Service Monitor có nhiệm vụ tự động phát hiện các Service ( thông qua gắn Match Label ) trong Cluster và cấu hình Prometheus để thu thập metrics từ các Service đó:  
 
  ```kubectl apply -f prometheus/service-monitor.yaml```  
@@ -458,22 +452,13 @@ Chạy file service-monitor.yaml, Service Monitor có nhiệm vụ tự động 
 
 ```kubectl port-forward -n monitoring svc/prometheus-kube-prometheus-prometheus 9090:9090```  
 
-Truy cập service Prometheus bằng cách vào ```localhost:9090``` ,giao diện hiện lên như dưới nghĩa là vào Prometheus thành công:  
-
-<img width="1312" height="481" alt="Image" src="https://github.com/user-attachments/assets/dbd84a4b-7bbb-4b46-b24e-11c520fb7a4f" />  
+Truy cập service Prometheus bằng cách vào ```localhost:9090```   
 
 Để check Prometheus đã nhận biết và callout Metric từ Container ở Các Pod hay chưa, chúng ta vào Status --> Target Health  
 
-<img width="883" height="468" alt="Image" src="https://github.com/user-attachments/assets/f870a44b-5705-42df-a2c1-1a1bcd2535c0" />  
-
-Nếu thấy tên của service monitor như này nghĩa là Prometheus đã nhận biết được các Metric.  
-
-<img width="1240" height="270" alt="Image" src="https://github.com/user-attachments/assets/0c93c73a-da1e-44af-94b9-66959f07be04" />  
-<img width="941" height="263" alt="Image" src="https://github.com/user-attachments/assets/7dd2d777-af69-4f0b-ac73-6965c00ceffe" />  
+Nếu thấy tên của service monitor nghĩa là Prometheus đã nhận biết được các Metric.  
 
 Ở trong file ML-app.py đã được định nghĩa 3 Metric lần lượt như sau:  
-
-<img width="842" height="347" alt="Image" src="https://github.com/user-attachments/assets/86bf1fd2-4a4b-4701-8cc2-f8d64c4a4b6e" />  
 
 1. Metric tên là model_request_total: dạng counter, đếm số request được gửi tới Model, cả các request bị lỗi
 2. Metric tên là ml_prediction_duration_seconds: dạng historgram, đo thời gian thực hiện request
@@ -481,70 +466,38 @@ Nếu thấy tên của service monitor như này nghĩa là Prometheus đã nh�
 
 Gửi vài request tới Model, search ```model_request_total``` sẽ có được số request nhận được ở mỗi Pod.  
 
-<img width="1312" height="369" alt="Image" src="https://github.com/user-attachments/assets/6b534b09-49ad-4175-9669-fa91e106b270" />  
-
 Nếu search ```rate(model_request_total[6m]) * 6 *60``` chúng ta sẽ nhận được số request **trung bình** nhận được ( từ 1 giây nhận được bao nhiêu Request rồi nhân lên 6 phút ) ở mỗi Pod trong 6 phút gần nhất. Từ đó có thể thấy Pod loan-prediction-deployment-5b54876b5-lcp49 được phân bố nhận request nhiều nhất.  
-
-<img width="1312" height="369" alt="Image" src="https://github.com/user-attachments/assets/afc9cbb8-c990-4725-a00c-3a67c2fb4193" />  
 
 Tương tự vậy, gửi 1 số request lỗi đầu vào, như sai định dạng đầu vào để xem metric ml_error_total hoạt động như nào. Trong đó lỗi dạng ValueError là sai định dạng Input, lỗi HTTP là lỗi trả về API endpoint.  
 
-<img width="1311" height="411" alt="Image" src="https://github.com/user-attachments/assets/2f2669dc-a250-4d73-b845-0bb8ef8a5f10" />  
-
 Search metric ```ml_prediction_duration_seconds_sum``` ta sẽ được tổng thời gian xử lý các request, kể cả các request bị lỗi, từ lúc hoạt động tới hiện tại của mỗi Pod.  
-
-<img width="1312" height="555" alt="Image" src="https://github.com/user-attachments/assets/b86eb471-4dd6-45f0-abf0-d45b27089534" />  
 
 Search ```increase(ml_prediction_duration_seconds_sum[5m])``` sẽ nhận được tổng thời gian xử lý tất cả các request trong 5 phút gần nhất của mỗi Pod.  
 Search ```ml_prediction_duration_seconds_count``` sẽ nhận được tổng số request nhận được ở mỗi Pod từ lúc khởi động tới hiện tại.  
-
-<img width="1312" height="301" alt="Image" src="https://github.com/user-attachments/assets/8acf5213-ff07-40e5-ba55-2049d685337d" />  
 
 ### b. Grafana:  
 
 Vì service của Grafana đã được triển khai ở bước trước nên nếu muốn truy cập vào Grafana, chúng ta chỉ cần port-forward cho service "prometheus-grafana":  
 
-<img width="996" height="214" alt="Image" src="https://github.com/user-attachments/assets/822e71ad-0d16-4473-ba79-26cf21563956" />  
-
 Mở Terminal mới, Chạy command: ```kubectl port-forward svc/prometheus-grafana -n monitoring  3000:80``` xong truy cập ```localhost:3000``` để vào Grafana.   
 
 Giao diện Grafana hiện lên ,tên account để đăng nhập là admin, password nằm ở trong file prometheus-values.yaml  
 
-<img width="849" height="512" alt="Image" src="https://github.com/user-attachments/assets/5ef5e7a2-43d0-42db-b677-dad178097da5" />  
-<img width="922" height="406" alt="Image" src="https://github.com/user-attachments/assets/3f2af9d3-cdd5-432e-8b77-f00c876ad344" />  
-
-
 Đăng nhập xong, click vào Dashboard --> New --> New Dashboard --> Add Visualization --> Chọn "Prometheus" để bắt đầu tạo Dashboard thể hiện các metric từ Promtheus.  
-
-<img width="1060" height="424" alt="Image" src="https://github.com/user-attachments/assets/df29f030-c17e-4f38-bda5-302b2037aad9" />  
 
 Bảng Edit Panel hiện ra, search metric ở vị trí (1), luôn để ở chế độ Code, xong ấn Run Query (2) để bắt đầu thể hiện biểu đồ của metric đang search.  
 
-<img width="999" height="587" alt="Image" src="https://github.com/user-attachments/assets/a04e655d-5e45-426a-8bbe-696a2e299a21" />  
-
 Biểu đồ của metric "model_request_total" hiện lên với mỗi màu là một Pod riêng biệt thể hiện thời điểm nhận số lượng request tương ứng thời gian.  
-
-<img width="992" height="313" alt="Image" src="https://github.com/user-attachments/assets/1a6afb74-2422-40b3-bfd3-47470e0c8a52" />  
 
 Điền tên cho biểu đồ và chọn "Save Dashboard".  
 
-<img width="500" height="418" alt="Image" src="https://github.com/user-attachments/assets/0f08ae8f-5f4e-4694-a167-e6b42d758b95" />  
-
 Đặt tên Title, đây là tên của Dashboard lớn quản lý nhiều Dashboard nhỏ bên trong.    
-
-<img width="1298" height="455" alt="Image" src="https://github.com/user-attachments/assets/f022e7de-cb0b-4db9-a235-23dcad19e573" />  
 
 Dashboard lớn hiện lên gồm 1 bảng dashboard nhỏ bên trong như trong hình, muốn thêm dashboard nhỏ nữa --> chọn "add" --> Vizualization  
 
-<img width="1318" height="620" alt="Image" src="https://github.com/user-attachments/assets/cf3c0bcf-1073-4173-a650-b8f4f8d57271" />  
-
 Để tính được trung bình 1 request được xử lý bao nhiêu giây trong vòng 5 phút gần nhất, chúng ta lấy tổng số thời gian xử lý tất cả request trong 5 phút chia cho tổng số lượng các request được gửi đến trong 10 phút, công thức sẽ là ```rate(ml_prediction_duration_seconds_sum[5m])``` chia cho ```rate(ml_prediction_duration_seconds_count[5m])```.  
 
-<img width="979" height="578" alt="Image" src="https://github.com/user-attachments/assets/5c38266f-6ebf-4bb0-9286-e9d6256824a0" />  
-
 Xong ấn Save dashboard để cho vào Dashboard lớn.  
-
-<img width="1319" height="571" alt="Image" src="https://github.com/user-attachments/assets/3d05103f-127a-4f4b-b8df-fe1864b82e71" />  
 
 Để tạo 1 Dashboard nhỏ thể hiện mức độ Memory Usage (tiêu tốn RAM) của các Pod. Chúng ta dùng công thức metric sau: ```(node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes) / 1024 / 1024 / 1024``` với ```node_memory_MemTotal_bytes``` là tổng RAM của node (tính bằng bytes), ```node_memory_MemAvailable_bytes``` là RAM còn trống có thể sử dụng ngay (bytes), trừ đi cho nhau chúng ta ra được số RAM đang được sử dụng của Pod đó. Xong đặt tên **Memory Usage (RAM) of Pod** và ấn Save dashboard để đưa Dashboard này vào Dashboard lớn.  
 
