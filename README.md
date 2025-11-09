@@ -343,7 +343,7 @@ Lập tức Github Credential hiện lên, chọn Add --> Chọn đúng tên Pip
 
 Bảng Add Credential hiện lên. Điền các thông tin lần lượt như sau: 
 1. Điền User name.             
-2. Điền Github Access Token vào.  
+2. Điền Github Access Token ở bước 8.a vào.  
 3. Điền ID để quản lý.
 
 <img width="1246" height="770" alt="Image" src="https://github.com/user-attachments/assets/060af370-97d5-4aa5-a091-3c585269cfcf" />
